@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <NavBar />
-      <ItemListContainer greeting="Bienvenidos a Minuchi e-commerce"/>
+      <ItemListContainer />
     </div>
   )
 }
