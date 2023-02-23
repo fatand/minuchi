@@ -1,47 +1,91 @@
 [
     {
       "id": 1,
-      "name": "Producto 1",
-      "price": 100,
+      "name": "Corona",
+      "price": 250,
       "description":
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "Corona para niños",
       "stock": 3,
-      "category": "MTB"
+      "category": "birthday-party",
+      "theme": "autos",
+      "image": "../assets/minuchi_products_pics/autos/corona.jpg"
     },
     {
       "id": 2,
-      "name": "Producto 2",
-      "price": 200,
+      "name": "Topper torta",
+      "price": 350,
       "description":
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "Decoración de torta de cumpleaños",
       "stock": 8,
-      "category": "Route"
+      "category": "birthday-party",
+      "theme": "autos",
+      "image": "../assets/minuchi_products_pics/autos/topper-torta.jpg"
+
     },
     {
       "id": 3,
-      "name": "Producto 3",
-      "price": 300,
+      "name": "Pack vasos",
+      "price": 290,
       "description":
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
+        "El pack contiene 4 unidades.",
       "stock": 3,
-      "category": "BMX"
+      "category": "birthday-party",
+      "theme": "autos",
+      "image": "../assets/minuchi_products_pics/autos/pack-vasos.jpg"
+
     },
     {
       "id": 4,
-      "name": "Producto 4",
-      "price": 400,
+      "name": "Corona",
+      "price": 250,
       "description":
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
-      "stock": 5,
-      "category": "MTB"
+        "DESCRIPCION CORONA",
+      "stock": 3,
+      "category": "birthday-party",
+      "theme": "dinosaurios",
+      "image": "../assets/product_example.png"
     },
     {
-        "id": 5,
-        "name": "Producto 5",
-        "price": 1000,
-        "description":
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum deleniti aut dignissimos explicabo ab, cumque eligendi ducimus numquam quibusdam minima.",
-        "stock": 25,
-        "category": "MTB"
-      }
+      "id": 5,
+      "name": "Topper torta",
+      "price": 350,
+      "description":
+        "DESCRIPCION TOPPER TORTA",
+      "stock": 8,
+      "category": "birthday-party",
+      "theme": "dinosaurios",
+      "image": "../assets/product_example.png"
+    },
+    {
+      "id": 6,
+      "name": "Pack vasos",
+      "price": 290,
+      "description":
+        "El pack contiene 4 unidades.",
+      "stock": 3,
+      "category": "birthday-party",
+      "theme": "dinosaurios",
+      "image": "../assets/product_example.png"
+    },
+    {
+      "id": 7,
+      "name": "Pack vasos",
+      "price": 290,
+      "description":
+        "El pack contiene 4 unidades.",
+      "stock": 3,
+      "category": "baby-shower",
+      "theme": "baby-shower1"
+    },
+    {
+      "id": 8,
+      "name": "Pack vasos",
+      "price": 290,
+      "description":
+        "El pack contiene 4 unidades.",
+      "stock": 3,
+      "category": "baby-shower",
+      "theme": "baby-shower2",
+      "image": "../assets/product_example.png"
+    }
   ]

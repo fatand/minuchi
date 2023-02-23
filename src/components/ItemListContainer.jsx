@@ -1,9 +1,14 @@
 import React from 'react';
 import ItemList from './ItemList';
 import products from "../data.json";
+import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer = () => {
+  // console.log(category);
+  const { category } = useParams(); 
+
+  console.log(category);
 
   const getDatos = () => {
     return new Promise((resolve, reject) => {
@@ -11,7 +16,7 @@ const ItemListContainer = () => {
         reject(new Error("No hay datos"));
       }
       setTimeout(() => {
-        resolve(products);
+        resolve(products); //El array de productos del json que se trae mediante la promesa queda bajo la variable "products
       }, 2000);
     });
   };
@@ -26,18 +31,13 @@ const ItemListContainer = () => {
 
   fetchingData();
 
-  console.log(products);
+  const catFilter = products.filter((product) => product.category === category);
 
-  const cat = products.map((prod) => {
-    return prod.category;
-  })
-
-  console.log(cat);
 
   return (
     <>
     {/* ACA CARGO EL jsx DE ITEM LIST DONDE LE PASO LA LISTA DE PRODUCTOS products Y LAS CATEGORIAS */}
-    <ItemList products={products} cat={cat} />
+    {category ? <ItemList products={catFilter} /> : <ItemList products={products} />}
     </>
   )
 }

@@ -1,35 +1,30 @@
+import { Flex } from '@chakra-ui/react';
 import React from 'react'
 import Item from './Item'
 
-const ItemList = ({products, cat}) => {
-    console.log("ITEM LIST");
-    console.log(products);
-    console.log(cat);
-
-    const catFilter = cat.filter((cat) =>{
-        return cat === "MTB";
-    })
-
-    console.log(catFilter);
+const ItemList = ({products}) => {
 
   return (
     <>
-    <div>Catálogo de productos</div>
-    <div>
-      {products.map((prod) => { //aca estoy haciedno un map para cada producto
-        return (
-            <Item 
-                key={prod.id}
-                id={prod.id}
-                name={prod.name}
-                description={prod.description}
-                price={prod.price}
-                stock={prod.stock}
-                category={prod.category}
-            />
-        )
-      })}
-    </div>
+      <div>Catálogo de productos</div>
+      <Flex align="center" justify="flex-start" bg='' flexWrap="wrap" p="10px">
+        {products.map((prod) => { //aca estoy haciendo un map para cada producto
+          return (
+            
+              <Item 
+                  key={prod.id}
+                  id={prod.id}
+                  name={prod.name}
+                  description={prod.description}
+                  price={prod.price}
+                  stock={prod.stock}
+                  category={prod.category}
+                  theme={prod.theme}
+                  image={prod.image}
+              />
+          )
+        })}
+      </Flex>
     </>
   )
 }
