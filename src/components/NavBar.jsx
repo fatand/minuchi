@@ -5,19 +5,11 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
-    HStack,
   } from '@chakra-ui/react'
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import { Flex, Spacer } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
-import { Heading } from '@chakra-ui/react'
-import { Text } from '@chakra-ui/react'
-import { Grid } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import logo from '../assets/logos-14.png'
 import { Link } from 'react-router-dom'

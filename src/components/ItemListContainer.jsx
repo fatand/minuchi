@@ -1,43 +1,42 @@
 import React from 'react';
 import ItemList from './ItemList';
-import products from "../data.json";
 import { useParams } from 'react-router-dom';
+import { Flex } from '@chakra-ui/react';
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { useState, useEffect } from "react";
+import { Heading } from '@chakra-ui/react';
+
 
 
 const ItemListContainer = () => {
-  // console.log(category);
+  const [products, setProducts] = useState([]);
   const { category } = useParams(); 
 
-  console.log(category);
-
-  const getDatos = () => {
-    return new Promise((resolve, reject) => {
-      if (products.length === 0) {
-        reject(new Error("No hay datos"));
-      }
-      setTimeout(() => {
-        resolve(products); //El array de productos del json que se trae mediante la promesa queda bajo la variable "products
-      }, 2000);
+  useEffect(() => {
+    const db = getFirestore();
+    const productsCollection = collection(db, "products");
+    getDocs(productsCollection).then((querySnapshot) => {
+      const products = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProducts(products);
     });
-  };
+  }, []);
 
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
-  fetchingData();
+
 
   const catFilter = products.filter((product) => product.category === category);
 
 
   return (
     <>
-    {/* ACA CARGO EL jsx DE ITEM LIST DONDE LE PASO LA LISTA DE PRODUCTOS products Y LAS CATEGORIAS */}
-    {category ? <ItemList products={catFilter} /> : <ItemList products={products} />}
+    <Flex align="center" justify="center" bg='' flexWrap="wrap" p="10px" flexDirection="column">
+      <Heading as="h2">Catálogo de productos</Heading>
+      {/* ACA CARGO EL jsx DE ITEM LIST DONDE LE PASO LA LISTA DE PRODUCTOS products Y LAS CATEGORIAS */}
+      {category ? <ItemList products={catFilter} /> : <ItemList products={products} />}
+    </Flex>
     </>
   )
 }

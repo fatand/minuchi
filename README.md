@@ -12,6 +12,12 @@ Aún resta ajustar el CSS para que la estética del sitio sea más agradable.
 
 ![GIF](./src/assets/gif_entrega2.gif)
 
+## Entrega Final
+
+** Debajo se encuentra el GIF solicitado para la  entrega final, donde se quiere mostrar la experiencia del usuario en el ecommerce desarrollado.
+
+![GIF](./src/assets/gif_entrega_final.gif)
+
 ## Tips propios
 Para visualizar el sitio en el navegador debemos ejecutar **npm run dev** en la consola.
 

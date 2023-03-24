@@ -1,41 +1,29 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react';
-import products from "../data.json";
-
+import { useState, useEffect} from 'react';
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
 
-  const { id } = useParams();
-  console.log(id);
-
-  const getDatos = () => {
-    return new Promise((resolve, reject) => {
-      if (products.length === 0) {
-        reject(new Error("No hay datos"));
-      }
-      setTimeout(() => {
-        resolve(products); //El array de productos del json que se trae mediante la promesa queda bajo la variable "products
-      }, 2000);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const db = getFirestore();
+    const productsCollection = collection(db, "products");
+    getDocs(productsCollection).then((querySnapshot) => {
+      const products = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setData(products);
     });
-  };
+  }, []);
 
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  fetchingData();
-
-  const productFilter = products.filter((product) => product.id == id);
 
   return (
     <>
-      <ItemDetail products={productFilter} /> 
+      <ItemDetail products={data} /> 
+
     </>
   )
 }

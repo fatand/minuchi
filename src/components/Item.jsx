@@ -1,7 +1,4 @@
 import React from 'react'
-import productpic from '../assets/example.jpg'
-
-
 import { Box, Flex, Image } from '@chakra-ui/react'
 import { Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react'
 import { Stack, Heading, Text, Divider, ButtonGroup, Button } from '@chakra-ui/react'
@@ -14,15 +11,13 @@ const Item = ({id, name, stock, category, price, description, theme, image}) => 
           <Card maxW='sm'>
             <CardBody>
               <Image
-                src={productpic}
-                // src={`image_id${id}.jpg`}
+                src={image}
                 alt={name}
                 borderRadius='lg'
                 boxSize='200px'
               />
               <Stack mt='6' spacing='3'>
                 <Heading size='md'>{name}</Heading>
-                {/* <Text> {description} </Text> */}
                 <Text color='teal' fontSize='2xl'>
                   ${price}
                 </Text>
@@ -30,7 +25,7 @@ const Item = ({id, name, stock, category, price, description, theme, image}) => 
               </Stack>
             </CardBody>
             <Divider />
-            <CardFooter>
+            <CardFooter className='card-footer'>
               <Box>
               <ButtonGroup spacing='2'>
                 <Button variant='solid' colorScheme='teal'>

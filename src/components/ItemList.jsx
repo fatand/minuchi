@@ -6,8 +6,7 @@ const ItemList = ({products}) => {
 
   return (
     <>
-      <div>Catálogo de productos</div>
-      <Flex align="center" justify="flex-start" bg='' flexWrap="wrap" p="10px">
+      <Flex align="center" justify="center" bg='' flexWrap="wrap" p="10px">
         {products.map((prod) => { //aca estoy haciendo un map para cada producto
           return (
             

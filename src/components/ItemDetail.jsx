@@ -1,6 +1,4 @@
 import React from 'react'
-import productpic from '../assets/example.jpg'
-
 import { useParams } from 'react-router-dom';
 import {
     Center,
@@ -14,12 +12,30 @@ import {
     CardFooter,
     Divider,
   } from "@chakra-ui/react";
-
+import ItemCount from './ItemCount';
+import { useEffect, useState } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 const ItemDetail = ({products}) => {
-    const { id } = useParams();
-    console.log(id);
+  const { id } = useParams();
+  const [producto, setProduct] = useState([]);
+
+    useEffect(() => {
+      const db = getFirestore();
+      const productReference = doc(db, "products", `${id}`);
+  
+      getDoc(productReference).then((snapshot) => {
+        if (snapshot.exists()) {
+          setProduct(snapshot.data());
+        } else {
+          console.log("No existe el documento!");
+        }
+      });
+    }, []);
+  
     const productFilter = products.filter((product) => product.id == id);
+
+  
 
   return (
     <>
@@ -27,10 +43,9 @@ const ItemDetail = ({products}) => {
         <div key={product.id}>
           <Center p="1rem">
             <Card className="card-main">
-              <CardBody>
+              <CardBody className="card-body">
                 <Image 
-                  src={productpic}
-                  // src={`image_id${id}.jpg`}
+                  src={product.image}
                   alt={product.name}
                   borderRadius="lg"                 
                   boxSize='200px'
@@ -53,11 +68,13 @@ const ItemDetail = ({products}) => {
               </CardBody>
               <Divider />
               <CardFooter className="card-footer">
-                <Center className="btn-center">
-                  <Button variant="solid" colorScheme="teal">
-                    Comprar
-                  </Button>
-                </Center>
+                <ItemCount 
+                  stock={product.stock}
+                  id={product.id}
+                  price={product.price}
+                  name={product.name}
+                  image={product.image}
+                />
               </CardFooter>
             </Card>
           </Center>
